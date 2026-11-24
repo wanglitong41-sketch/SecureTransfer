@@ -1,0 +1,48 @@
+{
+  "name": "securetransfer",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "engines": {
+    "node": "26.13.x",
+    "npm": ">=11 <13"
+  },
+  "scripts": {
+    "setup:certs": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts/Setup-Certificates.ps1",
+    "dev": "npm run build --workspace @securetransfer/protocol && concurrently --kill-others-on-fail -n server,web \"npm run dev --workspace @securetransfer/server\" \"npm run dev --workspace @securetransfer/web\"",
+    "build": "npm run build --workspace @securetransfer/protocol && npm run build --workspace @securetransfer/server && npm run build --workspace @securetransfer/web",
+    "start": "npm run start --workspace @securetransfer/server",
+    "typecheck": "npm run typecheck --workspaces --if-present && tsc --project tsconfig.tools.json --noEmit",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "vitest run",
+    "test:e2e": "playwright test",
+    "test:long": "vitest run --config vitest.long.config.ts"
+  },
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "@playwright/test": "1.65.1",
+    "@types/node": "26.6.6",
+    "@types/ws": "8.18.2",
+    "concurrently": "10.0.7",
+    "eslint": "10.15.0",
+    "eslint-config-prettier": "10.1.8",
+    "eslint-plugin-vue": "10.12.1",
+    "globals": "17.14.0",
+    "prettier": "3.10.1",
+    "tsx": "4.23.15",
+    "typescript": "5.9.3",
+    "typescript-eslint": "8.73.0",
+    "vitest": "5.1.1",
+    "vue-eslint-parser": "10.4.2"
+  },
+  "allowScripts": {
+    "argon2@0.45.2": true,
+    "esbuild@0.28.2": true
+  }
+}

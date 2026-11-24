@@ -1,0 +1,378 @@
+:root {
+  font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+  color: #183d33;
+  background: #f4f5ee;
+  font-synthesis: none;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+.page {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 30px 0;
+  border-bottom: 1px solid #d8ded2;
+}
+.brand {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  color: inherit;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 21px;
+  letter-spacing: -0.5px;
+}
+.brand-icon {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 40px;
+  border-radius: 10px 10px 17px 17px;
+  background: #183d33;
+  color: #f2f5df;
+  font-size: 22px;
+}
+.edition {
+  color: #58685b;
+  font-size: 13px;
+}
+main {
+  position: relative;
+  padding: 72px 0 48px;
+}
+.eyebrow {
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #566b43;
+  font-weight: 700;
+  margin: 0 0 24px;
+}
+h1 {
+  font-size: clamp(38px, 5vw, 64px);
+  line-height: 1.25;
+  letter-spacing: -2px;
+  margin: 0 0 24px;
+  font-weight: 650;
+}
+.intro {
+  max-width: 470px;
+  color: #58685b;
+  line-height: 1.9;
+  font-size: 15px;
+  margin-bottom: 50px;
+}
+.status-card {
+  position: absolute;
+  top: 92px;
+  right: 0;
+  width: 330px;
+  background: #fffef8;
+  padding: 30px;
+  border: 1px solid #d6ddcf;
+  border-radius: 18px;
+  box-shadow: 0 12px 32px #183d3307;
+}
+.status-label {
+  font-size: 12px;
+  color: #63715e;
+  margin-bottom: 20px;
+}
+h2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 21px;
+  margin: 0 0 12px;
+}
+.status-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #8d967c;
+  flex-shrink: 0;
+}
+.status-dot.ready {
+  background: #39865b;
+}
+.status-dot.error {
+  background: #a14735;
+}
+.status-card p {
+  font-size: 13px;
+  color: #63715e;
+  margin: 0 0 28px;
+}
+button {
+  background: #183d33;
+  color: #fffef8;
+  border: 0;
+  padding: 11px 17px;
+  border-radius: 7px;
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+button:hover {
+  background: #285448;
+}
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid #a7bb77;
+  outline-offset: 4px;
+}
+button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+.facts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  border-top: 1px solid #d8ded2;
+  padding-top: 27px;
+}
+.facts span {
+  display: block;
+  color: #63715e;
+  font-size: 12px;
+  margin-bottom: 9px;
+}
+.facts strong {
+  font-size: 15px;
+  font-weight: 600;
+}
+footer {
+  padding: 16px 0 30px;
+  font-size: 12px;
+  color: #63715e;
+}
+@media (max-width: 850px) {
+  .page {
+    padding: 0 24px;
+  }
+  .topbar {
+    flex-wrap: wrap;
+    padding: 22px 0;
+  }
+  main {
+    padding-top: 40px;
+  }
+  .status-card {
+    position: static;
+    width: 100%;
+    margin-bottom: 32px;
+  }
+  .intro {
+    margin-bottom: 28px;
+  }
+}
+@media (max-width: 460px) {
+  .edition {
+    font-size: 12px;
+  }
+  .facts {
+    grid-template-columns: 1fr;
+  }
+}
+
+.connection-panel {
+  border: 1px solid #d6ddcf;
+  border-radius: 14px;
+  background: #fffef8;
+  padding: 24px;
+  margin-bottom: 32px;
+}
+.connection-panel .eyebrow {
+  margin-bottom: 12px;
+}
+.connection-panel p {
+  color: #58685b;
+  font-size: 13px;
+  line-height: 1.7;
+}
+.connection-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+.connection-id {
+  overflow-wrap: anywhere;
+  font-family: monospace;
+}
+
+.account-panel {
+  border: 1px solid #d6ddcf;
+  border-radius: 14px;
+  background: #fffef8;
+  padding: 28px;
+  margin-bottom: 28px;
+}
+.account-panel .eyebrow {
+  margin-bottom: 12px;
+}
+.account-panel p {
+  color: #58685b;
+  font-size: 13px;
+  line-height: 1.7;
+}
+.auth-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  max-width: 760px;
+  margin-top: 24px;
+}
+.auth-form label {
+  display: grid;
+  gap: 8px;
+  font-size: 13px;
+}
+.auth-form input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #c6d0c0;
+  border-radius: 7px;
+  font: inherit;
+  color: inherit;
+  background: white;
+}
+.auth-form input:focus-visible {
+  outline: 2px solid #a7bb77;
+  outline-offset: 2px;
+}
+.auth-form .connection-actions {
+  margin-top: 0;
+  grid-column: 1 / -1;
+}
+.secondary {
+  background: #e5eadc;
+  color: #183d33;
+}
+.secondary:hover {
+  background: #d3ddc6;
+}
+.workspace-heading,
+.workspace-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.workspace-toolbar {
+  margin-top: 18px;
+}
+.empty-state {
+  padding: 36px 10px;
+  text-align: center;
+  background: #f4f5ee;
+  border-radius: 8px;
+}
+.table-scroll {
+  overflow-x: auto;
+}
+.file-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  margin: 20px 0;
+}
+.file-table th,
+.file-table td {
+  padding: 14px 10px;
+  border-bottom: 1px solid #d8ded2;
+  text-align: left;
+  overflow-wrap: anywhere;
+}
+.file-table th {
+  color: #63715e;
+  font-weight: 500;
+}
+.file-table td:first-child {
+  max-width: 280px;
+}
+.file-table button {
+  margin: 3px;
+  white-space: nowrap;
+}
+.account-panel .error-message {
+  color: #a14735;
+}
+.account-panel .notice-message {
+  color: #23613f;
+}
+@media (max-width: 600px) {
+  .auth-form {
+    grid-template-columns: 1fr;
+  }
+  .account-panel {
+    padding: 20px;
+  }
+  .workspace-heading,
+  .workspace-toolbar {
+    flex-wrap: wrap;
+  }
+}
+
+.upload-control {
+  display: grid;
+  gap: 10px;
+  font-size: 13px;
+  color: #58685b;
+  margin: 18px 0;
+}
+.upload-control input {
+  max-width: 100%;
+  font: inherit;
+}
+.upload-control input::file-selector-button {
+  border: 1px solid #c6d0c0;
+  background: #e5eadc;
+  color: #183d33;
+  border-radius: 7px;
+  padding: 10px 15px;
+  margin-right: 14px;
+  cursor: pointer;
+}
+.transfer-progress {
+  display: grid;
+  gap: 12px;
+  padding: 18px;
+  border-radius: 10px;
+  background: #f4f5ee;
+  margin-bottom: 16px;
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+.transfer-progress progress {
+  width: 100%;
+  height: 12px;
+  accent-color: #39865b;
+}
+.transfer-progress button {
+  justify-self: start;
+}
+.download-ready {
+  padding: 16px;
+  background: #edf3e3;
+  border-radius: 10px;
+  margin-bottom: 16px;
+  overflow-wrap: anywhere;
+}
+.download-ready a {
+  display: inline-block;
+  margin-right: 16px;
+  color: #183d33;
+  font-weight: 600;
+}
